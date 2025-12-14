@@ -1,47 +1,34 @@
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
 
-        QuestionManager qm = new QuestionManager();
-        QuestionMenu qMenu = new QuestionMenu(qm);
-        QuizRunner quiz = new QuizRunner();
-        RecommendationEngine rec = new RecommendationEngine();
+        QuestionManager manager = new QuestionManager();
+        QuestionMenu qMenu = new QuestionMenu(manager);
 
-        seedQuestions(qm);
+        // seed questions
+        manager.addQuestion(new Question(1, "What is an algorithm?", "B", "CS"));
+        manager.addQuestion(new Question(2, "SQL is used for?", "C", "IS"));
+        manager.addQuestion(new Question(3, "CPU function?", "B", "IT"));
 
         int choice;
         do {
             System.out.println("\n=== Course Readiness Evaluation System ===");
             System.out.println("1. Manage Questions");
-            System.out.println("2. Take Quiz");
-            System.out.println("3. View Recommendation");
             System.out.println("0. Exit");
             System.out.print("Choose: ");
+            choice = sc.nextInt(); sc.nextLine();
 
-            choice = sc.nextInt();
-            sc.nextLine();
-
-            switch (choice) {
-                case 1:
-                    qMenu.showMenu(sc);
-                    break;
-                case 2:
-                    quiz.runQuiz(sc, qm.getQuestionList());
-                    break;
-                case 3:
-                    rec.analyzeAndRecommend(
-                        qm.getQuestionList(),
-                        quiz.getUserAnswers()
-                    );
-                    break;
+            switch(choice) {
+                case 1: qMenu.showMenu(sc); break;
             }
-        } while (choice != 0);
 
+        } while(choice != 0);
+
+        System.out.println("System exited.");
         sc.close();
     }
 }
-}
-
-
