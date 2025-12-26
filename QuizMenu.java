@@ -50,7 +50,7 @@ public class QuizMenu {
                     answer.equals("C") || answer.equals("D")) {
                     break;
                 } else {
-                    System.out.println("❌ Invalid input! Please enter A, B, C, or D.");
+                    System.out.println(" Invalid input! Please enter A, B, C, or D.");
                 }
             }
 
@@ -72,4 +72,5 @@ public class QuizMenu {
         sc.nextLine();
     }
 }
+
 
