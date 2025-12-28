@@ -40,7 +40,7 @@ public class QuizMenu {
             System.out.println("Question " + questionNum + " of " + questions.size());
             System.out.println("Category: " + q.getCategory());
             System.out.println("\n______________________________________");
-            System.out.println(q.getQuestionText());
+            System.out.println(q.getQuestionText() +" "+ q.getOptions());
 
             // Display options if (q.getOptions() != null) 
             System.out.println();
